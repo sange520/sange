@@ -7,7 +7,7 @@
 <body>
     <h1>欢迎使用XF蕾哒</h1>
     <p>第一次不会使用，请点击查看教程：</p>
-    <a href="http://220.231.145.12:65411/help">查看教程</a>
+    <a href="http://220.231.145.12:65411/help">http://220.231.145.12:65411/help</a>
     <br><br>
     <p>老司机直接开始表演，蕾哒观看地址：</p>
     <a id="keyLink" href="#">生成的链接</a>
@@ -24,9 +24,9 @@
         if (key) {
             const keyLink = `http://220.231.145.12:65411/?key=${key}`;
             document.getElementById('keyLink').href = keyLink;
-            document.getElementById('keyLink').innerText = `使用key跳转到链接：${keyLink}`;
+            document.getElementById('keyLink').innerText = `${keyLink}`;
         } else {
-            document.getElementById('keyLink').innerText = '未知错误';
+            document.getElementById('keyLink').innerText = '链接未输入卡密，请重新检查一下';
         }
     </script>
 </body>
