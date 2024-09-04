@@ -1,13 +1,33 @@
-
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>自动跳转</title>
-    <!-- 设置0秒的延迟来立即重定向 -->
-    <meta http-equiv="refresh" content="0;url=http://220.231.145.12:65411/help">
+    <title>链接页面</title>
 </head>
 <body>
-    <!-- 如果重定向不工作，可以提供一个链接 -->
-    如果您的浏览器没有自动跳转，请点击以下链接：<a href="http://220.231.145.12:65411/help">跳转到新网页</a>
+    <h1>欢迎</h1>
+    <p>请点击以下链接获取帮助：</p>
+    <a href="http://220.231.145.12:65411/help">跳转到帮助页面</a>
+    <br><br>
+    <p>或使用以下链接（如果有key参数）：</p>
+    <a id="keyLink" href="#">生成的链接</a>
+
+    <script>
+        // 获取当前页面的URL
+        const url = new URL(window.location);
+        // 创建URLSearchParams对象
+        const params = new URLSearchParams(url.search);
+        // 从URL参数中获取key的值
+        const key = params.get('key');
+
+        // 检查key是否存在，并更新链接
+        if (key) {
+            const keyLink = `http://220.231.145.12:65411/?key=${key}`;
+            document.getElementById('keyLink').href = keyLink;
+            document.getElementById('keyLink').innerText = `使用key跳转到链接：${keyLink}`;
+        } else {
+            document.getElementById('keyLink').innerText = '未知错误';
+        }
+    </script>
 </body>
 </html>
